@@ -1,4 +1,4 @@
-# pavlakis/slim-cli
+# niekoost/slim-cli
 
 [![Build Status](https://travis-ci.org/pavlakis/slim-cli.svg)](https://travis-ci.org/pavlakis/slim-cli)
 [![Total Downloads](https://img.shields.io/packagist/dt/pavlakis/slim-cli.svg)](https://packagist.org/packages/pavlakis/slim-cli)
@@ -6,17 +6,17 @@
 [![codecov](https://codecov.io/gh/pavlakis/slim-cli/branch/master/graph/badge.svg)](https://codecov.io/gh/pavlakis/slim-cli)
 [![PHPStan](https://img.shields.io/badge/PHPStan-enabled-brightgreen.svg?style=flat)](https://github.com/phpstan/phpstan)
 
-Slim 3 Framework CLI Request Middleware
+Slim 4 Framework CLI Request Middleware
 
 This middleware will transform a CLI call into a Request.
-
+It is an adaptation of pavlakis/slim-cli for SLIM-4
 
 ## Install
 
 Via Composer
 
 ```
-composer require pavlakis/slim-cli
+composer require niekoost/slim-cli
 ```
 
 ## Usage
@@ -31,14 +31,14 @@ php public/index.php /status GET event=true
 ### Add it in the middleware section of your application
 
 ```php
-$app->add(new \pavlakis\cli\CliRequest());
+$app->add(new \niekoost\cli\CliRequest());
 ```
 
 Adding custom parameters:
 
 ```php
 $app->add(
-	new \pavlakis\cli\CliRequest(
+	new \niekoost\cli\CliRequest(
 		new EnvironmentProperties(['SERVER_PORT' => 9000])
 	)
 );
@@ -79,12 +79,12 @@ final class EventStatusAction
 }
 ```
 
-Or we can use a [PHP Server Interface (SAPI) Middleware](https://github.com/pavlakis/php-server-interface-middleware) to do the SAPI check adding by adding it to a route:
+Or we can use a [PHP Server Interface (SAPI) Middleware](https://github.com/niekoost/php-server-interface-middleware) to do the SAPI check adding by adding it to a route:
 
 ```php
 // By default returns a 403 if SAPI not part of the whitelist
 $app->get('/status', 'PHPMinds\Action\EventStatusAction:dispatch')
-    ->add(new Pavlakis\Middleware\Server\Sapi(["cli"]))
+    ->add(new niekoost\Middleware\Server\Sapi(["cli"]))
 ```
 
 ## Testing

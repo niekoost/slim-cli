@@ -60,13 +60,12 @@ class CliRequest
     /**
      * Invoke middleware.
      *
-     * @param ServerRequestInterface $request  PSR7 request object
-     * @param ResponseInterface      $response PSR7 response object
-     * @param callable               $next     Next middleware callable
+     * @param ServerRequestInterface $request PSR7 request object
+     * @param RequestHandlerInterface $next PSR15 response object     
      *
      * @return ResponseInterface PSR7 response object
      */
-    public function __invoke(ServerRequestInterface $request, ResponseInterface $response, callable $next)
+    public function __invoke(ServerRequestInterface $request, \Psr\Http\Server\RequestHandlerInterface $next)
     {
         global $argv;
 
@@ -84,7 +83,7 @@ class CliRequest
             unset($argv);
         }
 
-        return $next($this->request, $response);
+        return $next->handle($request);
     }
 
     /**
