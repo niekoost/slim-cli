@@ -2,8 +2,10 @@
 
 namespace niekoost\cli\Request;
 
+use Psr\Http\Message\UriInterface;
 use  Slim\Psr7\Environment;
-use  Slim\Psr7\Request;
+use Slim\Psr7\Factory\UriFactory;
+use  Slim\Psr7\Request as SlimRequest;
 
 class Request implements RequestInterface
 {
@@ -38,7 +40,15 @@ class Request implements RequestInterface
     {
         /** @var Environment $mockEnvironment */
         $mockEnvironment = Environment::mock($environmentProperties);
+        
+        $uriFactory = new UriFactory();
+        $uri = $uriFactory->createUri($mockEnvironment['REQUEST_URI']);
 
-        return \Slim\Psr7\Request::createFromEnvironment($mockEnvironment);
+        // @hack We only use method and uri. Headers and other parameters are ignored
+        $request = new SlimRequest($mockEnvironment['REQUEST_METHOD'], $uri);
+        
+        return $request;
+        
+        // ::createFromEnvironment($mockEnvironment);
     }
 }
