@@ -2,7 +2,7 @@
 /**
  * Pavlakis Slim CLI Request.
  *
- * @see        https://github.com/pavlakis/slim-cli
+ * @see        https://github.com/niekoost/slim-cli
  *
  * @copyright   Copyright © 2018 Antonis Pavlakis
  * @author      Antonios Pavlakis
@@ -10,14 +10,14 @@
  * @license     https://github.com/pavlakis/slim-cli/blob/master/LICENSE (BSD 3-Clause License)
  */
 
-namespace pavlakis\cli\tests;
+namespace niekoost\cli\tests;
 
 use Slim\Http\Uri;
 use Slim\Http\Body;
 use Slim\Http\Headers;
 use Slim\Http\Request;
 use Slim\Http\Response;
-use pavlakis\cli\CliRequest;
+use niekoost\cli\CliRequest;
 use Psr\Http\Message\ResponseInterface;
 
 /**
@@ -52,7 +52,7 @@ class CliRequestTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @throws \pavlakis\cli\Exception\DefaultPropertyExistsException
+     * @throws \niekoost\cli\Exception\DefaultPropertyExistsException
      */
     public function testCorrectRequestParametersArePassed()
     {
@@ -72,7 +72,7 @@ class CliRequestTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @throws \pavlakis\cli\Exception\DefaultPropertyExistsException
+     * @throws \niekoost\cli\Exception\DefaultPropertyExistsException
      */
     public function testMinimalCorrectRequestParametersArePassed()
     {
@@ -94,7 +94,7 @@ class CliRequestTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @throws \pavlakis\cli\Exception\DefaultPropertyExistsException
+     * @throws \niekoost\cli\Exception\DefaultPropertyExistsException
      */
     public function testRequestPathHasBeenUpdated()
     {
@@ -114,7 +114,7 @@ class CliRequestTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @throws \pavlakis\cli\Exception\DefaultPropertyExistsException
+     * @throws \niekoost\cli\Exception\DefaultPropertyExistsException
      */
     public function testRequestRemainsSameIfNoArgvIsPassed()
     {
@@ -136,7 +136,7 @@ class CliRequestTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @throws \pavlakis\cli\Exception\DefaultPropertyExistsException
+     * @throws \niekoost\cli\Exception\DefaultPropertyExistsException
      */
     public function testRequestWhenNoParamsArePassed()
     {
@@ -162,7 +162,7 @@ class CliRequestTest extends \PHPUnit_Framework_TestCase
      *
      * @param $method
      *
-     * @throws \pavlakis\cli\Exception\DefaultPropertyExistsException
+     * @throws \niekoost\cli\Exception\DefaultPropertyExistsException
      */
     public function testAllHttpMethodsAreAllowed($method)
     {

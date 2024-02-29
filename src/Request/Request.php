@@ -1,6 +1,6 @@
 <?php
 
-namespace pavlakis\cli\Request;
+namespace niekoost\cli\Request;
 
 class Request implements RequestInterface
 {

@@ -2,16 +2,16 @@
 /**
  * Pavlakis Slim CLI Request.
  *
- * @see        https://github.com/pavlakis/slim-cli
+ * @see        https://github.com/niekoost/slim-cli
  *
  * @copyright   Copyright © 2019 Antonios Pavlakis
  * @author      Antonios Pavlakis
  * @license     https://github.com/pavlakis/slim-cli/blob/master/LICENSE (BSD 3-Clause License)
  */
 
-namespace pavlakis\cli\Environment;
+namespace niekoost\cli\Environment;
 
-use pavlakis\cli\Exception\DefaultPropertyExistsException;
+use niekoost\cli\Exception\DefaultPropertyExistsException;
 
 final class EnvironmentProperties implements EnvironmentPropertiesInterface
 {

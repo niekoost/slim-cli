@@ -1,6 +1,6 @@
 <?php
 
-namespace pavlakis\cli\Environment;
+namespace niekoost\cli\Environment;
 
 interface EnvironmentPropertiesInterface
 {

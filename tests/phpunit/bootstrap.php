@@ -10,4 +10,4 @@
  * @license     https://github.com/pavlakis/slim-cli/blob/master/LICENSE (BSD 3-Clause License)
  */
 $autoloader = require __DIR__.'/../../vendor/autoload.php';
-$autoloader->add('pavlakis\\cli\\tests\\', __DIR__);
+$autoloader->add('niekoost\\cli\\tests\\', __DIR__);

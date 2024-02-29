@@ -2,24 +2,24 @@
 /**
  * Pavlakis Slim CLI Request.
  *
- * A Slim 3 middleware enabling a mock HTTP request to be made through the CLI.
+ * A Slim 4 middleware enabling a mock HTTP request to be made through the CLI.
  * Use in the form: php public/index.php /status GET event=true
  *
- * @see        https://github.com/pavlakis/slim-cli
+ * @see        https://github.com/niekoost/slim-cli
  *
  * @copyright   Copyright © 2019 Antonios Pavlakis
  * @author      Antonios Pavlakis
  * @license     https://github.com/pavlakis/slim-cli/blob/master/LICENSE (BSD 3-Clause License)
  */
 
-namespace pavlakis\cli;
+namespace niekoost\cli;
 
-use pavlakis\cli\Request\Request;
+use niekoost\cli\Request\Request;
 use Psr\Http\Message\ResponseInterface;
-use pavlakis\cli\Request\RequestInterface;
+use niekoost\cli\Request\RequestInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use pavlakis\cli\Environment\EnvironmentProperties;
-use pavlakis\cli\Environment\EnvironmentPropertiesInterface;
+use niekoost\cli\Environment\EnvironmentProperties;
+use niekoost\cli\Environment\EnvironmentPropertiesInterface;
 
 class CliRequest
 {
