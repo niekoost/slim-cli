@@ -2,6 +2,9 @@
 
 namespace niekoost\cli\Request;
 
+use  Slim\Psr7\Environment;
+use  Slim\Psr7\Request;
+
 class Request implements RequestInterface
 {
     private $supportedMethods = [
@@ -29,13 +32,13 @@ class Request implements RequestInterface
     /**
      * @param array $environmentProperties
      *
-     * @return \Slim\Http\Request
+     * @return \Slim\Psr7\Request
      */
     public function getMockRequest($environmentProperties)
     {
-        /** @var \Slim\Http\Environment $mockEnvironment */
-        $mockEnvironment = \Slim\Http\Environment::mock($environmentProperties);
+        /** @var Environment $mockEnvironment */
+        $mockEnvironment = Environment::mock($environmentProperties);
 
-        return \Slim\Http\Request::createFromEnvironment($mockEnvironment);
+        return \Slim\Psr7\Request::createFromEnvironment($mockEnvironment);
     }
 }
