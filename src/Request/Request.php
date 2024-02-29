@@ -44,9 +44,16 @@ class Request implements RequestInterface
         $uriFactory = new UriFactory();
         $uri = $uriFactory->createUri($mockEnvironment['REQUEST_URI']);
 
-        // @hack We only use method and uri. Headers and other parameters are ignored
-        $request = new SlimRequest($mockEnvironment['REQUEST_METHOD'], $uri);
+        $headers = new \Slim\Psr7\Headers();
+        $cookies = [];
+        $serverParams = [];
+
+        $context = stream_context_create([]);
         
+        $body = new \Slim\Psr7\Stream($context);
+        // @hack We only use method and uri. Headers and other parameters are ignored
+        $request = new SlimRequest($mockEnvironment['REQUEST_METHOD'], $uri, $headers, $cookies, $serverParams, $body);
+
         return $request;
         
         // ::createFromEnvironment($mockEnvironment);
