@@ -83,7 +83,7 @@ class CliRequest
             unset($argv);
         }
 
-        return $next->handle($request);
+        return $next->handle($this->request);
     }
 
     /**
